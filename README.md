@@ -97,6 +97,9 @@ library(patchwork)
 - **[kableExtra](https://cran.r-project.org/web/packages/kableExtra/)** — R package used to format and style data tables in the PDF output
 - **[patchwork](https://patchwork.data-imaginist.com/)** — R package used to combine multiple ggplot panels into a single figure layout
 
+
+**© 2026 Ryan Fabrick. All rights reserved. This project may not be reused, adapted, or submitted for academic coursework without explicit written permission from the author.**
+
 ________________________________________________
 Built with ❤️ for UCSB
 
