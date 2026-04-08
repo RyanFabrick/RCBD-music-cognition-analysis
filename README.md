@@ -13,7 +13,7 @@ This is a designed experiment and statistical analysis investigating whether bac
 
 ## Why Did I Build This?
 
-I built this for a Design and Analysis of Experiments upper division elective course during my third year at UCSB as a Statistics and Data Science major. This was a collaborative final project completed with two partners and received full credit for experimental design, design justification, statistical analysis, interpretation, data visualizations, formatted markdown, and overall write up quality. The course covered the statistical theory and application of designed experiments including CRD, RCBD, factorial designs, blocking, and more. The analysis was conducted in R using Quarto/RMarkdown and compiled to PDF.
+I built this for a Design and Analysis of Experiments upper division elective course during my third year at UCSB as a Statistics and Data Science major. This was a collaborative final project completed with two partners and received full credit for experimental design, design justification, statistical analysis, interpretation, data visualizations, formatted markdown, and overall write up quality. The course covered the statistical theory and application of designed experiments including CRD, RCBD, factorial designs, blocking, and more. The analysis was conducted in R using Quarto and compiled to PDF.
 
 ## Results
 
@@ -38,7 +38,7 @@ I built this for a Design and Analysis of Experiments upper division elective co
 
 ## Outline & Analysis
 
-For full code, statistical output, visualizations, and written interpretations, see the [main file](main.RMD). For a brief outline, see below. And for full rendered PDF report, scroll down or [click here](Rendered%20PDF.pdf).
+For full code, statistical output, visualizations, and written interpretations, see the [main file](main.QMD). For a brief outline, see below. And for full rendered PDF report, scroll down or [click here](Rendered%20PDF.pdf).
 
 ### Part 1 — Introduction & Research Question
 - Research question: does house music affect Chimp Test performance vs. silence?
@@ -75,7 +75,7 @@ For full code, statistical output, visualizations, and written interpretations, 
 
 ## Rendered PDF
 
-To view the rendered PDF from the [main file](main.RMD) that is produced, [click here](Rendered%20PDF.pdf).
+To view the rendered PDF from the [main file](main.QMD) that is produced, [click here](Rendered%20PDF.pdf).
 
 ## Dependencies
 
@@ -92,7 +92,7 @@ library(patchwork)
 - **[Chimp Test](https://humanbenchmark.com/tests/chimp)** — The visual memory task used as the response measure where participants played until their first strike/failure
 - **[Seeing & Believing — Kolter Remix](https://www.youtube.com/watch?v=cWMm28piiBg)** — The house music track (Chris Stussy, Kolter; PIV, 2020) played at a fixed volume for all music- ondition trials
 - **[R Project](https://www.r-project.org/)** — The statistical computing language used for all data wrangling, hypothesis testing, ANOVA, and visualization
-- **[R Markdown](https://rmarkdown.rstudio.com/)** — The authoring framework used to combine R code, output, and written analysis into a single reproducible PDF report
+- **[Quarto](https://quarto.org/)** — The authoring framework used to combine R code, output, and written analysis into a single reproducible PDF report
 - **[ggplot2](https://ggplot2.tidyverse.org/)** — Tidyverse package used for boxplots and paired difference histogram
 - **[kableExtra](https://cran.r-project.org/web/packages/kableExtra/)** — R package used to format and style data tables in the PDF output
 - **[patchwork](https://patchwork.data-imaginist.com/)** — R package used to combine multiple ggplot panels into a single figure layout
