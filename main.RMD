@@ -1,12 +1,7 @@
 ---
-title: 'Final Project'
-subtitle: "PSTAT122: Design and Analysis of Experiments" 
+title: 'Final Project - Chimp Test: Effect of House Music on Visual Memory'
+subtitle: "Design and Analysis of Experiments" 
 
-author:
-  - name: "Winter 2026"
-   # affiliations:
-    #  - name: "Fall 2025"
-affiliation-title: "Quarter"
 format: 
  pdf:
     code-fold: true
@@ -35,16 +30,8 @@ library(patchwork)
 <div style="text-align: center">
 <span style="color: blue;"> **STUDENT NAME **</span> 
 </div>
-- Brendan Chung    (A117F78)
-- Lily Nishizawa    (A0A8710)
-- Ryan Fabrick    (A006000)
+- Ryan Fabrick
 :::
-
-::: {.callout-caution}
-# Due Date
-**Due Date:** Monday, March 16, 2026, 11:59 PM
-:::
-
 
 # Introduction
 
