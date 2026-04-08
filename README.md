@@ -38,7 +38,7 @@ I built this for a Design and Analysis of Experiments upper division elective co
 
 ## Outline & Analysis
 
-For full code, statistical output, visualizations, and written interpretations, see the [main file](main.RMD). For a brief outline, see below.
+For full code, statistical output, visualizations, and written interpretations, see the [main file](main.RMD). For a brief outline, see below. And for full rendered PDF report, scroll down or [click here](Rendered%20PDF.pdf).
 
 ### Part 1 — Introduction & Research Question
 - Research question: does house music affect Chimp Test performance vs. silence?
