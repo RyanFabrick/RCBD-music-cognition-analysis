@@ -9,6 +9,8 @@ This is a designed experiment and statistical analysis investigating whether bac
 - [Outline & Analysis](#outline--analysis)
 - [Rendered PDF](#rendered-pdf)
 - [Dependencies](#dependencies)
+- [License](#license)
+- [Author](#author)
 - [Acknowledgements & References](#acknowledgements--references)
 
 ## Why Did I Build This?
@@ -87,6 +89,18 @@ library(ggplot2)
 library(patchwork)
 ```
 
+## License
+
+**© 2026 Ryan Fabrick. All rights reserved. This project may not be reused, adapted, or submitted for academic coursework without explicit written permission from the author.**
+
+## Author
+
+**Ryan Fabrick**
+- Statistics and Data Science (B.S) Student, University of California Santa Barbara
+- GitHub: [https://github.com/RyanFabrick](https://github.com/RyanFabrick)
+- LinkedIn: [www.linkedin.com/in/ryan-fabrick](https://www.linkedin.com/in/ryan-fabrick)
+- Email: ryanfabrick@gmail.com
+
 ## Acknowledgements & References
 
 - **[Chimp Test](https://humanbenchmark.com/tests/chimp)** — The visual memory task used as the response measure where participants played until their first strike/failure
@@ -96,9 +110,6 @@ library(patchwork)
 - **[ggplot2](https://ggplot2.tidyverse.org/)** — Tidyverse package used for boxplots and paired difference histogram
 - **[kableExtra](https://cran.r-project.org/web/packages/kableExtra/)** — R package used to format and style data tables in the PDF output
 - **[patchwork](https://patchwork.data-imaginist.com/)** — R package used to combine multiple ggplot panels into a single figure layout
-
-
-**© 2026 Ryan Fabrick. All rights reserved. This project may not be reused, adapted, or submitted for academic coursework without explicit written permission from the author.**
 
 ________________________________________________
 Built with ❤️ for UCSB
