@@ -7,6 +7,7 @@ This is a designed experiment and statistical analysis investigating whether bac
 - [Why Did I Build This?](#why-did-i-build-this)
 - [Results](#results)
 - [Outline & Analysis](#outline--analysis)
+- [Rendered PDF](#rendered-pdf)
 - [Dependencies](#dependencies)
 - [Acknowledgements & References](#acknowledgements--references)
 
@@ -71,6 +72,10 @@ For full code, statistical output, visualizations, and written interpretations, 
 - Convenience sampling limits generalizability to all UCSB undergraduates
 - No time restriction per question, faster vs. slower pacing may have inflated some scores
 - Future work: larger/random sample, time limits per question, multiple music genres
+
+## Rendered PDF
+
+To view the rendered PDF from the [main file](main.RMD) that is produced, [click here](Rendered%20PDF.pdf).
 
 ## Dependencies
 
