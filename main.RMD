@@ -1,0 +1,396 @@
+---
+title: 'Final Project'
+subtitle: "PSTAT122: Design and Analysis of Experiments" 
+
+author:
+  - name: "Winter 2026"
+   # affiliations:
+    #  - name: "Fall 2025"
+affiliation-title: "Quarter"
+format: 
+ pdf:
+    code-fold: true
+    code-line-numbers: true
+    code-copy: true
+    code-tools: true
+    self-contained: true
+    toc: false
+    toc-location: left
+    number-sections: true
+    geometry: margin = 12mm
+
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message =  FALSE)
+knitr::opts_chunk$set(warning =  FALSE)
+knitr::opts_chunk$set(error =  FALSE)
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(patchwork)
+```
+
+:::callout
+<div style="text-align: center">
+<span style="color: blue;"> **STUDENT NAME **</span> 
+</div>
+- Brendan Chung    (A117F78)
+- Lily Nishizawa    (A0A8710)
+- Ryan Fabrick    (A006000)
+:::
+
+::: {.callout-caution}
+# Due Date
+**Due Date:** Monday, March 16, 2026, 11:59 PM
+:::
+
+
+# Introduction
+
+## Research Question {.unnumbered}
+
+Does house music, compared with no music, affect Chimp Test performance among UCSB undergraduate students?
+
+## Motivation {.unnumbered}
+
+Background music is commonly used while studying or completing cognitive tasks, yet its effect on memory performance remains unclear. Some individuals believe music improves concentration, while others report that it creates distractions that reduce focus.
+
+The Chimp Test, a visual memory task requiring participants to recall the positions of numbers on a screen, provides a controlled way to measure short-term memory performance. Because the test relies heavily on attention and working memory, it offers a useful tool for evaluating whether background audio influences cognitive performance.
+
+## Context {.unnumbered}
+
+The objective of this experiment is to determine whether listening to house music affects Chimp Test performance compared with completing the task in silence among UCSB undergraduate students.
+
+The response variable is Chimp Test performance which is measured as the score achieved before the first strike or failure. The main factor of interest in this experiment is music condition which has two treatment levels: (1) Silence/No Music and (2) House Music. This is an experimental study because participants are intentionally assigned to experimental conditions. Experimental studies allow stronger cause and effect conclusions when random assignment is used.
+
+Since each student will complete the Chimp Test under both treatment conditions, this is best described as a randomized complete block design (RCBD). Each student serves as their own comparison which helps control for person to person differences that could otherwise hide the treatment effect. Blocking is used as a way to control a known source of variation, and this is exactly what student level blocking does here.
+
+# Experimental Design
+
+## Factor and Treatment {.unnumbered}
+
+This experiment studies if house music affects performance on the Chimp Test so there would be one treatment factor, the music condition, with two levels: (1) no music/silence (2) house music.
+
+## Response Variable and Experimental Units {.unnumbered}
+
+The main response variable for our experiment is the participant’s Chimp Test score: the highest level/count reached on the test before the first strike/failure when incorrectly remembering the number sequence. Each individual UCSB undergraduate student (inclusive of all majors, grade level, and background) represents our experimental unit and will contribute two observations each: one Chimp Test score in silence and another with house music. The house music condition represents a fixed effect because the two conditions studied are the main conditions of interest and not randomly sampled across all genres of music. The students each serve as a blocking variable to account for variation in memory and attention between students. 
+
+## Design {.unnumbered}
+
+Our experimental design follows a Randomized Complete Block Design (RCBD) where each student represents a block. An RCBD design would be the most appropriate for our experiment because it would help us control our nuisance variable of natural memory performance across students. Since one student may be naturally better at memory performance than another, we must block each student so their performance is compared in reference to themselves, removing any between-group variability and controlling our experimental error. 
+
+## Randomization and Replication {.unnumbered}
+
+Our experiment also reduces potential order effects like practice, fatigue, or adaptation by randomly assigning each participant to one of the two possible treatment orders (taking the Chimp Test with house music first, then silence or vice versa.) We will replicate this process for each individual student to ensure that our observations are not just due to chance. 
+
+## Blocking and Extraneous Conditions {.unnumbered}
+
+We incorporate blocking by having each student complete both treatment conditions of taking the Chimp Test in silence or with house music. Blocking each student would ensure that our comparison is made within students and reduce unexplained variation from different levels of memory and focus. We will also hold several conditions constant across all trials to isolate the effect of the house music condition. The following non-treatment conditions were kept constant across all trials::
+	
+- All participants must complete the Chimp Test on a laptop with their trackpad (no touch screen allowed)
+
+- All participants must complete the Chimp Test while seated and wearing provided headphones for both conditions.
+
+- All participants must receive two practice rounds of the Chimp Test before the recorded trial to acclimate them to playing the game
+
+- Under the treatment condition of playing the Chimp Test with house music, the track and volume level will be kept the same for all participants
+
+Keeping these conditions constant will help us control other possible sources of variability while being able to vary our explanatory variable.
+
+## Sample Size {.unnumbered}
+
+Our experiment samples 30 students total, representing 30 blocks in our RCBD. All 30 students will complete both treatments yielding 30 observations with no music, and 30 observations with house music with a total of 60 recorded observations.
+
+# Data Collection
+
+## Participants {.unnumbered}
+
+The participants were 30 UCSB undergraduate students through convenience sampling. We recruited classmates, friends, and nearby students to participate in this test. Each participant was assigned a unique participant ID and completed the Chimp Test under both treatment conditions, yielding 30 blocks and 60 total recorded observations.
+
+## Procedure {.unnumbered}
+
+The experiment was conducted in a controlled setting using laptops with trackpads only. Each participant completed the Chimp Test twice: once in silence and once while listening to house music through headphones. To maintain consistency across trials, all participants were seated, used the same testing format, and received the same instructions. Before the recorded trials began, each participant completed practice rounds to become familiar with the task.
+
+Because the study used a repeated-measures blocked design, each participant completed both treatment conditions. To reduce order effects, participants were randomly assigned to one of two treatment orders:
+
+- silence first, then house music, or
+
+- house music first, then silence.
+
+For each condition, the participant completed the official recorded Chimp Test until the first strike/failure occurred. The recorded response was the highest level reached before that first strike. After both trials were completed, the silence score, house music score, and paired difference were recorded for each participant. The final dataset contains all 30 paired observations.
+
+## Challenges/Adjustments {.unnumbered}
+
+One possible challenge during data collection was a learning effect, since participants completed the Chimp Test more than once. Participants may have performed better on the second trial simply because they became more familiar with the game format. To reduce this source of bias, the order of treatment conditions was randomized across participants.
+
+Another possible challenge was fatigue or distraction, especially if testing conditions varied across participants. To address this, participants were tested under standardized conditions using laptops, trackpads, headphones, and a seated position. The same house music track (Seeing & Believing - Kolter Remix) and volume level were used for all music trials so that the treatment condition remained well-defined.
+
+## Raw Data {.unnumbered}
+
+```{r}
+#| label: Raw Data
+#| echo: false
+chimpdata <- read_excel("PSTAT 122 Final Project Dataset.xlsx", sheet = "Sheet1")
+kable(chimpdata, caption = "Chimp Test Scores", align = "l") %>%
+  kable_styling(latex_options = c("striped","hold_position"),
+                full_width = FALSE)
+```
+
+# Analysis
+
+## Exploratory Data {.unnumbered}
+
+```{r}
+#| label: Summary of Data
+#| echo: false
+sumdata <- chimpdata[sapply(chimpdata, is.numeric)]
+sumstats <- data.frame(
+  n = sapply(sumdata, function(x) sum(!is.na(x))),
+  Mean  = sapply(sumdata, mean, na.rm = TRUE),
+  SD    = sapply(sumdata, sd, na.rm = TRUE),
+  Min   = sapply(sumdata, min, na.rm = TRUE),
+  Max   = sapply(sumdata, max, na.rm = TRUE)
+)
+kable(sumstats, align = "l", caption = "Summary Statistics") %>%
+  kable_styling(latex_options = c("striped","hold_position"),
+                full_width = FALSE)
+```
+
+The summary statistics suggest a noticeable difference between the two conditions. Participants achieved a higher mean score in silence (11.4) compared with the house music condition (9.9), indicating that performance may decrease when background music is present.
+
+The standard deviations for both conditions are relatively similar (2.74 vs 2.12), suggesting that variability in performance is comparable across treatments. Because the same participants completed both conditions, this variability primarily reflects differences in individual memory ability rather than treatment effects.
+
+The paired difference variable (Silence − Music) has a mean of 1.5 and ranges from −1 to 6, indicating that most participants scored higher in silence, though a few performed slightly better with music.
+
+Because each participant completed both conditions, it is appropriate to compare scores using paired analysis methods that account for the blocking by student.
+
+```{r}
+#| label: Initial Boxplots
+#| echo: false
+#| fig-width: 10
+#| fig-height: 4
+chimpdata2 <- read_excel("PSTAT 122 Final Project Dataset.xlsx", sheet = "Sheet2")
+p1 <- ggplot(chimpdata2, aes(x = Music, y = Score, fill = Music)) +
+  geom_boxplot() +
+  labs(title = "Chimp Test Score by Music Condition",
+       x = "Music Condition",
+       y = "Chimp Test Score") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none")
+
+p2 <- ggplot(chimpdata, aes(x = Difference)) +
+  geom_histogram(binwidth = 1, boundary = 0, closed = "left") +
+  theme_minimal() +
+  labs(
+    title = "Distribution of Paired Differences",
+    x = "Silence Score - House Music Score",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+p1 + p2 + plot_layout(ncol = 2)
+```
+
+The boxplots visually compare the distributions of Chimp Test scores under the two music conditions. The silence condition appears to have a slightly higher median score compared with the house music condition. There is also overlap between the distributions, indicating that some students performed similarly in both environments. However, the general pattern suggests that scores may tend to be lower when house music is played.
+
+The distribution of paired differences histograph shows that most participants scored higher in Silence than in House Music, with differences mostly between 1 and 3 points.
+
+## Hypothesis Testing {.unnumbered}
+
+Because each student completed both treatment conditions, the observations are paired. This corresponds to a Randomized Complete Block Design (RCBD) where each student is treated as a block.
+
+### Hypotheses {.unnumbered}
+
+Let $d_i$ = Silence Score$_i$ - Music Score$_i$.
+
+- $\mathbf{H_0}: \mu_d = 0$
+
+    (There is no average difference in Chimp Test performance between silence and house music conditions)
+
+- $\mathbf{H_1}: \mu_d \neq 0$
+
+    (The mean difference is not zero, indicating that the background music condition affects performance.)
+
+Where $\mu_d$ represents the mean paired difference between silence and house music scores.
+
+### Paired t-test {.unnumbered}
+
+```{r}
+#| label: Paired t-test
+#| echo: false
+t.test(
+  chimpdata$`No Music/Silence Score` ,
+  chimpdata$`House Music Score`,
+  paired = TRUE
+)
+```
+
+The paired t-test produced a test statistic of t = 4.8418 with 29 degrees of freedom and a p-value of $3.937 \times 10^{-5}$. 
+
+Since $p = 3.937e-05 < \alpha = 0.05$, we reject the null hypothesis. We have evidence that the true mean difference between scores between the two conditions is not equal to zero. 
+
+The estimated mean difference between conditions (silence - house music) is 1.5 points, meaning that participants scored on average 1.5 levels higher when completing the test in silence compared to when listening to house music. The 95% confidence interval for the true mean difference is $(0.87, 2.13)$, which means we are 95% confident that students score between approximately 0.87 and 2.13 levels higher in silence than with house music.
+
+Because this interval does not include zero, it further supports the conclusion that the music condition affects performance.
+
+## ANOVA {.unnumbered}
+
+```{r}
+#| label: RCBD ANOVA
+#| echo: false
+chimpdata2$Music <- factor(chimpdata2$Music)
+chimpdata2$`Participant ID` <- factor(chimpdata2$`Participant ID`)
+
+rcbd_model <- aov(Score ~ Music + `Participant ID`, data = chimpdata2)
+
+summary(rcbd_model)
+```
+
+The music treatment effect is statistically significant ($p < 0.001$), indicating that the background audio condition has a measurable impact on Chimp Test performance.
+
+The participant blocking factor is also highly significant ($p < 0.001$), which confirms that there are substantial natural differences in memory performance between individuals. This validates the choice of a blocked design because accounting for participant-level variability improves the accuracy of the treatment comparison.
+
+The large F-statistic for the music factor indicates that variation between treatment conditions is substantially larger than the residual variation within blocks. This suggests that the difference between silence and house music explains a meaningful portion of the variability in Chimp Test performance.
+
+In summary, the analysis provides strong evidence that participants perform significantly better on the Chimp Test in silence than when listening to house music, with an average improvement of about 1.5 score levels.
+
+# Conclusions
+
+This experiment investigated whether listening to house music affects performance on the Chimp Test among UCSB undergraduate students. We found significant evidence that house music condition affected Chimp Test performances. Participants in this experiment scored better on average in the silence condition than in the house music condition with a mean of $11.4 \pm 2.74$ points while house music condition averages were $9.9 \pm 2.12$ points. The average paired difference (silence condition - house music condition) was $1.5 \pm 1.70$ points. Participants scored on average 1.5 levels higher in silence than when listening to house music.
+
+Our paired t-test also shows a statistically significant difference between the two conditions where $t(29) = 4.8418$ and $p = 3.937 \times 10^{-5}$. There was also a 95% confidence interval for the true mean difference of $(0.866, 2.134)$. Because the interval is not inclusive of 0, the data provides significant evidence that students performed differently across the house music treatment condition and the silence treatment condition. We can ultimately conclude that participants performed significantly better in silence than while listening to house music. 
+
+Additionally, the ANOVA from the randomized complete block design showed the treatment effect for music $F(1,29) = 23.443$, $p = 3.94 \times 10^{-5}$ showing that the house music audio had a measurable effect on Chimp Test performance. The participant blocking factor was also significant $F(29, 29) = 7.333$, $p = 3.54 \times 10^{-7}$ showing that there was a substantial difference in memory performance across students. This result confirms that using an RCBD design was important since blocking each participant helped remove between-group variation that could impact the error term. Overall, our experimental results suggest that silence was the stronger condition for Chimp Test performance where students scored about $1.5$ points higher on average in silence than when listening to house music. 
+
+## Limitations {.unnumbered}
+
+Since participants were recruited through convenience sampling (friends, classmates, etc.) the results may not be representative of all UCSB undergraduates. In addition, though treatment order was randomized, some fatigue effect could have remained because the participants were instructed to take the Chimp Test two times before the real trial. Lastly, participants were not given a specific time restriction to complete the Chimp Test so some participants could have taken much more time to get a higher Chimp Test score than others which may have inflated their scores. 
+
+## Improvements {.unnumbered}
+
+One possible improvement could be to increase the sample size without relying on convenience sampling which could help recruit a more representative sample. We could also add a time limit to each question on the Chimp Test to ensure every participant had a fair and equal amount of time to complete the test. Future experiments could also compare multiple genres of music outside of house with varying lyrics, bpm, and volume to reflect a broader impact of background music on Chimp Test performance. 
+
+\newpage 
+# References
+
+1. “Chimpanzee Test.” *Human Benchmark*, humanbenchmark.com/tests/chimp. Accessed 15 Mar. 2026. 
+2. Chris Stussy, Kolter. "Seeing & Believing - Kolter Remix." *Across Ocean*, PIV, 2020, Spotify.
+
+# Appendices
+
+## R Setup {.unnumbered}
+```{r}
+#| label: All R Code 0
+#| echo: true
+#| eval: false
+
+knitr::opts_chunk$set(message =  FALSE)
+knitr::opts_chunk$set(warning =  FALSE)
+knitr::opts_chunk$set(error =  FALSE)
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(patchwork)
+```
+## Raw Data {.unnumbered}
+```{r}
+#| label: All R Code 1
+#| echo: true
+#| eval: false
+
+chimpdata <- read_excel("PSTAT 122 Final Project Dataset.xlsx", sheet = "Sheet1")
+kable(chimpdata, caption = "Chimp Test Scores", align = "l") %>%
+  kable_styling(latex_options = c("striped","hold_position"),
+                full_width = FALSE)
+```
+## Summary of Data {.unnumbered}
+```{r}
+#| label: All R Code 2
+#| echo: true
+#| eval: false
+
+sumdata <- chimpdata[sapply(chimpdata, is.numeric)]
+sumstats <- data.frame(
+  n = sapply(sumdata, function(x) sum(!is.na(x))),
+  Mean  = sapply(sumdata, mean, na.rm = TRUE),
+  SD    = sapply(sumdata, sd, na.rm = TRUE),
+  Min   = sapply(sumdata, min, na.rm = TRUE),
+  Max   = sapply(sumdata, max, na.rm = TRUE)
+)
+kable(sumstats, align = "l", caption = "Summary Statistics") %>%
+  kable_styling(latex_options = c("striped","hold_position"),
+                full_width = FALSE)
+```
+## Initial Boxplots {.unnumbered}
+```{r}
+#| label: All R Code 3
+#| echo: true
+#| eval: false
+#| fig-width: 10
+#| fig-height: 4
+
+chimpdata2 <- read_excel("PSTAT 122 Final Project Dataset.xlsx", sheet = "Sheet2")
+p1 <- ggplot(chimpdata2, aes(x = Music, y = Score, fill = Music)) +
+  geom_boxplot() +
+  labs(title = "Chimp Test Score by Music Condition",
+       x = "Music Condition",
+       y = "Chimp Test Score") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none")
+
+p2 <- ggplot(chimpdata, aes(x = Difference)) +
+  geom_histogram(binwidth = 1, boundary = 0, closed = "left") +
+  theme_minimal() +
+  labs(
+    title = "Distribution of Paired Differences",
+    x = "Silence Score - House Music Score",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+p1 + p2 + plot_layout(ncol = 2)
+```
+## Paired Differences Histogram {.unnumbered}
+```{r}
+#| label: All R Code 4
+#| echo: true
+#| eval: false
+
+ggplot(chimpdata, aes(x = Difference)) +
+  geom_histogram(binwidth = 1, boundary = 0, closed = "left") +
+  theme_minimal() +
+  labs(
+    title = "Distribution of Paired Differences",
+    x = "Silence Score - House Music Score",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+## Paired t-test {.unnumbered}
+```{r}
+#| label: All R Code 5
+#| echo: true
+#| eval: false
+
+t.test(
+  chimpdata$`No Music/Silence Score` ,
+  chimpdata$`House Music Score`,
+  paired = TRUE
+)
+```
+## RCBD ANOVA {.unnumbered}
+```{r}
+#| label: All R Code 6
+#| echo: true
+#| eval: false
+
+chimpdata2$Music <- factor(chimpdata2$Music)
+chimpdata2$`Participant ID` <- factor(chimpdata2$`Participant ID`)
+
+rcbd_model <- aov(Score ~ Music + `Participant ID`, data = chimpdata2)
+
+summary(rcbd_model)
+```
