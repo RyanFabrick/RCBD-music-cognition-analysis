@@ -103,4 +103,5 @@ library(patchwork)
 ________________________________________________
 Built with ❤️ for UCSB
 
+
 This project demonstrates my interest in experimental design, statistical inference, and applied data and statistcal analysis. It received full credit for an undergraduate course in Design and Analysis of Experiments.
